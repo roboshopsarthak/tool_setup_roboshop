@@ -14,6 +14,8 @@
   ansible.builtin.file:
     path: /actions-runner
     state: directory
+    owner: github-runner
+    group: github-runner
 
 - name: Download runner
   ansible.builtin.unarchive:

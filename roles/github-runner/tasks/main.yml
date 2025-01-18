@@ -1,0 +1,27 @@
+# Following steps need to be run manually
+# sudo curl -L -o /etc/yum.repos.d/gh-cli.repo https://cli.github.com/packages/rpm/gh-cli.repo
+# sudo dnf install gh -y
+# gh auth login -s admin:org
+
+- name: Set Prompt
+  ansible.builtin.shell: set-prompt {{ tool_name }}
+
+- name: Add github runner user
+  ansible.builtin.user:
+    name: github-runner
+
+- name: Create runner directory
+  ansible.builtin.file:
+    path: /actions-runner
+    state: directory
+
+- name: Download runner
+  ansible.builtin.unarchive:
+    src: https://github.com/actions/runner/releases/download/v2.321.0/actions-runner-linux-x64-2.321.0.tar.gz
+    dest: /actions-runner
+    remote_src: yes
+
+- name: Insall libicu
+  ansible.builtin.dnf:
+    name: libicu
+    state: installed

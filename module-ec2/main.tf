@@ -46,6 +46,8 @@ resource "aws_instance" "instance" {
       spot_instance_type = "persistent"
     }
   }
+  iam_instance_profile = aws_iam_instance_profile.instance_profile.name
+
 }
 
 resource "aws_route53_record" "record-public" {

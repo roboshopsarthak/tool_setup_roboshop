@@ -20,6 +20,8 @@
     src: https://github.com/actions/runner/releases/download/v2.321.0/actions-runner-linux-x64-2.321.0.tar.gz
     dest: /actions-runner
     remote_src: yes
+    owner: github-runner
+    group: github-runner
 
 - name: Insall libicu
   ansible.builtin.dnf:

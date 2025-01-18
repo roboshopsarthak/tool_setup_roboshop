@@ -39,7 +39,7 @@
 
 - name: Register runner
   ansible.builtin.shell: |
-    ./config.sh --unattended --url https://github.com/roboshopsarthak --token {{ token.stdout }}  --name {{ ansible_hostname }} --runnergroup Default
+    ./config.sh --unattended --url https://github.com/roboshopsarthak --token AORCPHWL3M52D7BMJUN5R73HRMSE4  --name {{ ansible_hostname }} --runnergroup Default
   become_user: github-runner
   args:
     chdir: /actions-runner

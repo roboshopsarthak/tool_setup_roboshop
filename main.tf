@@ -7,4 +7,5 @@ module "tools" {
     instance_type = each.value["instance_type"]
     zone_id = var.zone_id
     domain_name = var.domain_name
+    policy_list = each.value["policy_list"]
 }

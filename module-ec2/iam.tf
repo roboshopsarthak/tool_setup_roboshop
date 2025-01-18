@@ -1,10 +1,7 @@
 resource "aws_iam_role" "role" {
-  name = "${var.tool_name}_role"
-
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
-  assume_role_policy = <<EOF
-{
+    name = "${var.tool_name}_role"
+    assume_role_policy = <<EOF
+    {
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -15,11 +12,23 @@ resource "aws_iam_role" "role" {
             "Action": "sts:AssumeRole"
         }
     ]
-}
-  EOF
+    }
+    EOF
     tags = {
         name = "${var.tool_name}_role"
-  }
+    }
+    inline_policy {
+    name = "${var.tool_name}_inline_role"
+
+    policy = <<EOF
+        Version = "2012-10-17"
+        Statement = [
+        {
+            Action   = var.policy_list
+            Effect   = "Allow"
+            Resource = "*"
+        EOF
+    }
 }
 
 resource "aws_iam_instance_profile" "instance_profile" {

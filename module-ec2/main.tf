@@ -46,7 +46,7 @@ resource "aws_instance" "instance" {
       spot_instance_type = "persistent"
     }
   }
-  iam_instance_profile = length(var.policy_list) > 0 ? aws_iam_instance_profile.instance_profile.name : null
+  iam_instance_profile = length(var.policy_list) > 0 ? aws_iam_instance_profile.instance_profile[0].name : null
 
 }
 

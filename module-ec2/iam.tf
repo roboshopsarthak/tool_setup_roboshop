@@ -1,5 +1,5 @@
 resource "aws_iam_role" "role" {
-    count = length(var.policy_list)
+    count = length(var.policy_list) > 0 ? 1 : 0
     name = "${var.tool_name}_role"
     assume_role_policy = <<EOF
     {
@@ -21,7 +21,7 @@ resource "aws_iam_role" "role" {
 }
 
 resource "aws_iam_policy" "policy" {
-  count = length(var.policy_list)
+  count = length(var.policy_list) > 0 ? 1 : 0
   name        = "${var.tool_name}_inline_role"
   description = "Policy for ${var.tool_name} role"
 
@@ -43,13 +43,13 @@ resource "aws_iam_policy" "policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "role_policy_attachment" {
-  count = length(var.policy_list)
+  count = length(var.policy_list) > 0 ? 1 : 0
   role       = aws_iam_role.role.name
   policy_arn = aws_iam_policy.policy.arn
 }
 
 resource "aws_iam_instance_profile" "instance_profile" {
-  count = length(var.policy_list)
+  count = length(var.policy_list) > 0 ? 1 : 0
   name = "${var.tool_name}_role"
   role = aws_iam_role.role.name
 }

@@ -10,7 +10,7 @@ variable tools {
             port = 80 #Just a dummy port
             volume_size = 20
             instance_type = "t2.micro"
-            policy_list = ["ec2:*","route53:*"]
+            policy_list = ["ec2:*","route53:*","s3:*"]
         }
     }
 }

@@ -44,12 +44,12 @@ resource "aws_iam_policy" "policy" {
 
 resource "aws_iam_role_policy_attachment" "role_policy_attachment" {
   count = length(var.policy_list) > 0 ? 1 : 0
-  role       = aws_iam_role.role[count.index].name
-  policy_arn = aws_iam_policy.policy[count.index].arn
+  role       = aws_iam_role.role[0].name
+  policy_arn = aws_iam_policy.policy[0].arn
 }
 
 resource "aws_iam_instance_profile" "instance_profile" {
   count = length(var.policy_list) > 0 ? 1 : 0
   name = "${var.tool_name}_role"
-  role = aws_iam_role.role[count.index].name
+  role = aws_iam_role.role[0].name
 }

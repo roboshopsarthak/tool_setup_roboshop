@@ -4,7 +4,7 @@ variable tools {
             port = 8200
             volume_size = 20
             instance_type = "t2.micro"
-            policy_list = ["ecc2:DescribeInstances"]
+            policy_list = []
         }
         github-runner = {
             port = 80 #Just a dummy port

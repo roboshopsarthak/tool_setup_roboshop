@@ -1,0 +1,28 @@
+###########  WorkStation Setup   ###########
+
+sudo -i
+set-prompt workstation
+sudo curl -L -o /etc/yum.repos.d/hashicorp.repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install terraform
+sudo dnf install ansible
+
+########### Vault SetUp #############
+
+When ever a new vault server will be created -
+First action will be to built infra (Server)
+Second action will be run playbook ansible
+3rd will be to login to vault_server (http)
+Download the key file and login
+Than run the Make file to configure seccrets on vault server
+
+########### GitHub Setip #################
+
+Run infra pipeline from  tools_setup repository
+# Following steps need to be run manually
+# sudo curl -L -o /etc/yum.repos.d/gh-cli.repo https://cli.github.com/packages/rpm/gh-cli.repo
+# sudo dnf install gh -y
+# gh auth login -s admin:org
+
+update Actions secrets and variables (under organization) with vault_token which is created from vault server
+
+################    Run infra provsioning playbook ##########

@@ -19,10 +19,14 @@ Than run the Make file to configure seccrets on vault server
 ########### GitHub Setip #################
 
 Run infra pipeline from  tools_setup repository
+First steps -
 # Following steps need to be run manually
 # sudo curl -L -o /etc/yum.repos.d/gh-cli.repo https://cli.github.com/packages/rpm/gh-cli.repo
 # sudo dnf install gh -y
 # gh auth login -s admin:org
+
+Second Steps -
+#Run ansible playbook
 
 update Actions secrets and variables (under organization) with vault_token which is created from vault server
 

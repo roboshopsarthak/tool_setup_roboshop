@@ -1,0 +1,6 @@
+docker run --help #this helps to whole list of commands we can use for running docker
+docker ps -a #Provides a list of all dockers triggered on the machine
+docker inspect <ID> #Provides details of a container
+docker kill <ID> #Kill the container
+docker run -d -p 8080:80 nginx #Publish docker on a particular port 
+docker run -d -P nginx #Publish docker on any port.

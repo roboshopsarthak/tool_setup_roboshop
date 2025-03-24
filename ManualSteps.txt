@@ -31,3 +31,10 @@ Second Steps -
 update Actions secrets and variables (under organization) with vault_token which is created from vault server
 
 ################    Run infra provsioning playbook ##########
+
+##############Docker Setup #############
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+sudo dnf install docker-ce
+sudo systemctl enable --now docker
+sudo systemctl start docker

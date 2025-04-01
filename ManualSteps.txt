@@ -38,3 +38,7 @@ sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker
 sudo dnf install docker-ce
 sudo systemctl enable --now docker
 sudo systemctl start docker
+
+#################Learnings###############
+
+VAULT_ADDR=http://127.0.0.1:8200 vault operator unseal <vault keys>

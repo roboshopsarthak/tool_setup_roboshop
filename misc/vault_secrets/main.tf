@@ -33,6 +33,16 @@ resource "vault_generic_secret" "frontend" {
     "payment_url": "http://payment-dev.sarthak1207.shop:8080/",
     "user_url": "http://user-dev.sarthak1207.shop:8080/",
     "shipping_url": "http://shipping-dev.sarthak1207.shop:8080/"
+    "CATALOGUE_HOST": "catalogue-dev.sarthak1207.shop"
+    "CATALOGUE_PORT": "8080"
+    "USER_HOST": "user-dev.sarthak1207.shop"
+    "USER_PORT": "8080"
+    "CART_HOST": "cart-dev.sarthak1207.shop"
+    "CART_PORT": "8080"
+    "SHIPPING_HOST": "shipping-dev.sarthak1207.shop"
+    "SHIPPING_PORT": "8080"
+    "PAYMENT_HOST": "payment-dev.sarthak1207.shop"
+    "PAYMENT_PORT": "8080"
 }
 EOT
 }
@@ -69,6 +79,7 @@ resource "vault_generic_secret" "cart" {
 {
     "REDIS_HOST": "redis-dev.sarthak1207.shop",
     "CATALOGUE_HOST": "catalogue-dev.sarthak1207.shop"
+    "CATALOGUE_PORT: "8080"
 }
 EOT
 }
@@ -95,6 +106,10 @@ resource "vault_generic_secret" "shipping" {
     "CART_ENDPOINT": "cart-dev.sarthak1207.shop:8080",
     "DB_HOST": "mysql-dev.sarthak1207.shop",
     "MYSQL_ROOT_PASSWORD": "RoboShop@1"
+    "DB_TYPE": "mysql"
+    "APP_GIT_URL": "https://github.com/roboshop-devops-project-v3/shipping"
+    "DB_USER": "root"
+    "DB_PASS": "RoboShop@1"
 }
 EOT
 }

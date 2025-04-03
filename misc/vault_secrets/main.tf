@@ -33,7 +33,7 @@ resource "vault_generic_secret" "frontend" {
     "payment_url": "http://payment-dev.sarthak1207.shop:8080/",
     "user_url": "http://user-dev.sarthak1207.shop:8080/",
     "shipping_url": "http://shipping-dev.sarthak1207.shop:8080/",
-    "CATALOGUE_HOST": "catalogue-dev.sarthak1207.shop"
+    "CATALOGUE_HOST": "catalogue-dev.sarthak1207.shop",
     "CATALOGUE_PORT": "8080",
     "USER_HOST": "user-dev.sarthak1207.shop",
     "USER_PORT": "8080",

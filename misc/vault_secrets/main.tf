@@ -79,7 +79,7 @@ resource "vault_generic_secret" "cart" {
 {
     "REDIS_HOST": "redis-dev.sarthak1207.shop",
     "CATALOGUE_HOST": "catalogue-dev.sarthak1207.shop",
-    "CATALOGUE_PORT: "8080"
+    "CATALOGUE_PORT": "8080"
 }
 EOT
 }

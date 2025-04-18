@@ -43,7 +43,7 @@
   become_user: github-runner
   args:
     chdir: /actions-runner
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: Copy Service file
   ansible.builtin.copy:
@@ -65,4 +65,14 @@
 - name: Install Terraform
   ansible.builtin.dnf:
     name: terraform
+    state: installed
+
+- name: Copy Kubernetes repo
+  ansible.builtin.copy:
+    src: kubernetes.repo
+    dest: /etc/yum.repos.d/kubernetes.repo
+
+- name: Install kubectl
+  ansible.builtin.dnf:
+    name: kubectl
     state: installed
